@@ -2,7 +2,7 @@
 % Please edit documentation in R/AeMFA.R
 \name{pAICBIC}
 \alias{pAICBIC}
-\title{Calculates AIC, AICc, and BIC for panel regression models}
+\title{AIC, AICc, and BIC for panel regression models}
 \usage{
 pAICBIC(mod)
 }

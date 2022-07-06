@@ -4,5 +4,5 @@
 \alias{AeMFA}
 \title{AeMFA: Functions of the book \emph{Angewandte empirische Methoden in Finance & Accounting}}
 \description{
-This package provides the functions which where developed for the book \emph{"Angewandte empirische Methoden in Finance & Accounting"}.
+This package provides the functions which where developed for the book \emph{"Angewandte empirische Methoden in Finance & Accounting}.
 }

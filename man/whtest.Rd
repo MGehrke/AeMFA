@@ -7,10 +7,10 @@
 whtest(mod1, mod2)
 }
 \arguments{
-\item{mod1}{A regression model, tested with \code{clogit()}, \code{pglm()}, \code{plm()},
-and \code{iv\_robust()}.}
+\item{mod1}{A regression model. The function was tested with \code{clogit()}, \code{pglm()},
+\code{plm()}, and \code{iv_robust()}.}
 
-\item{mod2}{Another model of the classed given above.}
+\item{mod2}{Another model of the classes given above.}
 }
 \value{
 None. A message for the alternative and the values for
@@ -29,8 +29,8 @@ None. A message for the alternative and the values for
 }
 \references{
 Wu, D.-M. (1973) Alternative tests of independence between stochastic regressors and
-  disturbances, \emph{Econometrica} \bold{41}, 733–-750, DOI 10.2307/1914093.
+  disturbances, \emph{Econometrica}, \bold{41}, 733–-750, DOI 10.2307/1914093.
 
-  Hausman, J. A. (1978) Specification tests in econometrics, \emph{Econometrica} \bold{46},
+  Hausman, J. A. (1978) Specification tests in econometrics, \emph{Econometrica}, \bold{46},
   1251-–1271.
 }

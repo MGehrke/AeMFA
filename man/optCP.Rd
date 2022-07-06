@@ -2,7 +2,7 @@
 % Please edit documentation in R/AeMFA.R
 \name{optCP}
 \alias{optCP}
-\title{Calculates an optimal cutpoint}
+\title{Optimal cutpoint for logistic regression models}
 \usage{
 optCP(mod, yvar, success)
 }

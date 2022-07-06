@@ -1,13 +1,13 @@
 #' @title AeMFA: Functions of the book \emph{Angewandte empirische Methoden in Finance & Accounting}
 #'
-#' @description This package provides the functions which where developed for the book \emph{"Angewandte empirische Methoden in Finance & Accounting"}.
+#' @description This package provides the functions which where developed for the book \emph{"Angewandte empirische Methoden in Finance & Accounting}.
 #'
 #'@name AeMFA
 NULL
 
 
 ## R-Code B.1 ----
-#' Calculates AIC, AICc, and BIC for panel regression models
+#' AIC, AICc, and BIC for panel regression models
 #'
 #' \code{pAICBIC()} calculates AIC, AICc, and BIC for models created with \code{plm()}.
 #'
@@ -73,7 +73,7 @@ pAICBIC <- function(mod){
 
 
 ## R-Code B.2 ----
-#' Calculates an optimal cutpoint
+#' Optimal cutpoint for logistic regression models
 #'
 #' \code{optCP()} calculates the optimal cutpoint for logistic regression models using the
 #'   approach proposed by Wooldridge (2010,  p. 574).
@@ -126,11 +126,11 @@ optCP <- function(mod, yvar, success){
 #'   In this case, a message is displayed which model is inconsistent.
 #'
 #' @param
-#'   mod1 A regression model, tested with \code{clogit()}, \code{pglm()}, \code{plm()},
-#'   and \code{iv\_robust()}.
+#'   mod1 A regression model. The function was tested with \code{clogit()}, \code{pglm()},
+#'   \code{plm()}, and \code{iv_robust()}.
 #'
 #' @param
-#'   mod2 Another model of the classed given above.
+#'   mod2 Another model of the classes given above.
 #'
 #' @returns
 #'   None. A message for the alternative and the values for
@@ -141,9 +141,9 @@ optCP <- function(mod, yvar, success){
 #'
 #' @references
 #'   Wu, D.-M. (1973) Alternative tests of independence between stochastic regressors and
-#'   disturbances, \emph{Econometrica} \bold{41}, 733–-750, DOI 10.2307/1914093.
+#'   disturbances, \emph{Econometrica}, \bold{41}, 733–-750, DOI 10.2307/1914093.
 #'
-#'   Hausman, J. A. (1978) Specification tests in econometrics, \emph{Econometrica} \bold{46},
+#'   Hausman, J. A. (1978) Specification tests in econometrics, \emph{Econometrica}, \bold{46},
 #'   1251-–1271.
 #'
 #' @export
@@ -188,7 +188,26 @@ whtest <- function(mod1, mod2){
 
 
 ## R-Code B.4 ----
-# AIC und ggf. BIC in der logistischen Panelregression berechnen
+#' AIC and BIC for logistic panel regression models
+#'
+#' \code{lpAICBIC()} calculates AIC and eventually BIC for models created with
+#' \code{bife()}, \code{clogit()}, \code{glmer()}, or \code{pglm()}.
+#'
+#' @param
+#'   mod A logistic panel regression model created by \code{bife()}, \code{clogit()},
+#'   \code{glmer()}, or \code{pglm()}.
+#'
+#' @returns
+#'   Upon success the function returns a named numeric vector containing
+#'   AIC and BIC (if feasible).
+#'
+#' @seealso
+#'   \code{pAICBIC()}
+#'
+#' @examples
+#'   lpAICBIC(mod)
+#'
+#' @export
 lpAICBIC <- function(mod){
   # Devianz berechnen
   deviance <- -2 * logLik(mod)
@@ -215,7 +234,31 @@ lpAICBIC <- function(mod){
 
 
 ## R-Code B.5 ----
-# abnormale Renditen berechnen
+#' Abnormal returns in single company event studies
+#'
+#' \code{getAR()} calculates the abnormal return over a standard return calculated by a
+#' market model.
+#'
+#' @param
+#'   company An \code{xts}-object containing the company returns.
+#' @param
+#'   index An \code{xts}-object containing the market index returns.
+#' @param
+#'   start Date, formated "YYYY-MM-DD", for the start of the estimation window.
+#' @param
+#'   end Date, formated "YYYY-MM-DD", for the end of the estimation window.
+#'
+#' @returns
+#'   Upon success the function returns a named \code{xts}-object containing
+#'   the abnormal returns for the whole period given by \code{company} or \code{index}.
+#'
+#' @seealso
+#'   \code{tTestAR()}, \code{CRTestAR()}
+#'
+#' @examples
+#'   getAR(company, index, "2010-01-01", "2015-12-31")
+#'
+#' @export
 getAR <- function(company, index, start, end){
   # Überprüfung, ob company und index xts-Objekte sind
   if(!is.xts(company) || !is.xts(index)){
@@ -233,7 +276,38 @@ getAR <- function(company, index, start, end){
 
 
 ## R-Code B.6 ----
-# t-Test für abnormale Renditen
+#' t-Test for abnormal returns in single company event studies
+#'
+#' \code{tTestAR()} applies a t-test for abnormal returns.
+#'
+#' @param
+#'   ar An \code{xts}-object containing the abnormal returns.
+#' @param
+#'   wsstart Date, formated "YYYY-MM-DD", indicating the start of the estimation window.
+#' @param
+#'   wsend Date, formated "YYYY-MM-DD", indicating the end of the estimation window.
+#' @param
+#'   westart Date, formated "YYYY-MM-DD", indicating the start of the event window.
+#' @param
+#'   weend Date, formated "YYYY-MM-DD", indicating the end of the event window.
+#' @param
+#'   nParam Number of parameters in the model used for estimating the normal return, e.g.,
+#'   2 for the market model and other one-factor models. Defaults to 2.
+#' @param
+#'   flPlot Logical, indicates whether a plot of the abnormal returns including an interval
+#'   of \eqn{\pm} 2 standard errors should be drawn. Defaults to FALSE.
+#'
+#' @returns
+#'   A list object containing dates, abnormal returns, standard errors, t-values, and p-values,
+#'   plus the cumulative abnormal return, standard error, t-value, and p-value thereof.
+#'
+#' @seealso
+#'   \code{getAR()}, \code{CRTestAR()}
+#'
+#' @examples
+#'   tTestAR(ar, "2010-01-01", "2015-12-31", "2016-01-05", "2016-01-10", 2, TRUE)
+#'
+#' @export
 tTestAR <- function(ar, wsstart, wsend, westart, weend, nParam = 2, flPlot = FALSE){
   # Schätzfenster
   wstext <- paste0(wsstart, "/", wsend)
@@ -269,9 +343,9 @@ tTestAR <- function(ar, wsstart, wsend, westart, weend, nParam = 2, flPlot = FAL
   # Grafik ausgeben
   if(flPlot){
     # Plot mit +/- 2 se
-    autoplot(we) |>
-      gf_hline(yintercept = 0, color = "blue") |>
-      gf_hline(yintercept = c(-2 * se, 2 * se), color = "blue", linetype = 2)
+    ggplot2::autoplot(we) |>
+      ggformula::gf_hline(yintercept = 0, color = "blue") |>
+      ggformula::gf_hline(yintercept = c(-2 * se, 2 * se), color = "blue", linetype = 2)
   }
 
   retval <- list(t.test, CAR.t.test)
@@ -282,7 +356,41 @@ tTestAR <- function(ar, wsstart, wsend, westart, weend, nParam = 2, flPlot = FAL
 
 
 ## R-Code B.7 ----
-# Corrado-Rang-Test für abnormale Renditen
+#' Corrado rank test for abnormal returns in single company event studies
+#'
+#' \code{CRTestAR()} applies a Corrado rank test for abnormal returns (Corrado, 1989.
+#'
+#' @param
+#'   ar An \code{xts}-object containing the abnormal returns.
+#' @param
+#'   wsstart Date, formated "YYYY-MM-DD", indicating the start of the estimation window.
+#' @param
+#'   wsend Date, formated "YYYY-MM-DD", indicating the end of the estimation window.
+#' @param
+#'   westart Date, formated "YYYY-MM-DD", indicating the start of the event window.
+#' @param
+#'   weend Date, formated "YYYY-MM-DD", indicating the end of the event window.
+#' @param
+#'   nParam Number of parameters in the model used for estimating the normal return, e.g.,
+#'   2 for the market model and other one-factor models. Defaults to 2.
+#'
+#' @returns
+#'   A list object containing dates, abnormal returns, abnormal rank values,
+#'   standard errors, t-values, and p-values,
+#'   plus the cumulative abnormal return, cumulative abnormal rank place, standard error,
+#'   t-value, and p-value thereof.
+#'
+#' @seealso
+#'   \code{getAR()}, \code{tTestAR()}
+#'
+#' @examples
+#'   CRTestAR(ar, "2010-01-01", "2015-12-31", "2016-01-05", "2016-01-10", 2)
+#'
+#' @references
+#'  Corrado, C. J. (1989) A nonparametric test for abnormal security-price performance in
+#'  event studies, \emph{Journal of Financial Economics}, \bold{23}, 385-–395.
+#'
+#' @export
 CRTestAR <- function(ar, wsstart, wsend, westart, weend, nParam = 2){
   # Schätzfenster
   wstext <- paste0(wsstart, "/", wsend)

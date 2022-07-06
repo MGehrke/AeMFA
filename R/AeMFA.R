@@ -1,4 +1,4 @@
-#' @title AeMFA: Functions of the book \emph{Angewandte empirische Methoden in Finance & Accounting}
+#' @title AeMFA: Functions of the book "Angewandte empirische Methoden in Finance & Accounting"
 #'
 #' @description This package provides the functions which where developed for the book \emph{"Angewandte empirische Methoden in Finance & Accounting}.
 #'
@@ -82,7 +82,7 @@ pAICBIC <- function(mod){
 #' @param
 #'   mod Logistic regression model created by \code{glm()}.
 #' @param
-#'   yvar \code{string} Name of the $y$-variable.
+#'   yvar Name of the \eqn{y}-variable.
 #' @param
 #'   sucess Value for success (\code{string} or \code{integer}).
 #'

@@ -9,7 +9,7 @@ optCP(mod, yvar, success)
 \arguments{
 \item{mod}{Logistic regression model created by \code{glm()}.}
 
-\item{yvar}{\code{string} Name of the $y$-variable.}
+\item{yvar}{Name of the \eqn{y}-variable.}
 
 \item{sucess}{Value for success (\code{string} or \code{integer}).}
 }

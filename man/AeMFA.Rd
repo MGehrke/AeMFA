@@ -2,7 +2,7 @@
 % Please edit documentation in R/AeMFA.R
 \name{AeMFA}
 \alias{AeMFA}
-\title{AeMFA: Functions of the book \emph{Angewandte empirische Methoden in Finance & Accounting}}
+\title{AeMFA: Functions of the book "Angewandte empirische Methoden in Finance & Accounting"}
 \description{
 This package provides the functions which where developed for the book \emph{"Angewandte empirische Methoden in Finance & Accounting}.
 }

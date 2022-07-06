@@ -1,5 +1,30 @@
+#' @title AeMFA: Functions of the book \emph{Angewandte empirische Methoden in Finance & Accounting}
+#'
+#' @description This package provides the functions which where developed for the book \emph{"Angewandte empirische Methoden in Finance & Accounting"}.
+#'
+#'@name AeMFA
+NULL
+
+
 ## R-Code B.1 ----
-# AIC, AICc und BIC in der Panelregression berechnen
+#' Calculates AIC, AICc, and BIC for panel regression models
+#'
+#' \code{pAICBIC()} calculates AIC, AICc, and BIC for models created with \code{plm()}.
+#'
+#' @param
+#'   mod A panel regression model created by \code{plm()}.
+#'
+#' @returns
+#'   Upon success the function returns a named numeric vector containing
+#'   AIC, AICc, and BIC.
+#'
+#' @seealso
+#'   \code{lpAICBIC()}
+#'
+#' @examples
+#'   pAICBIC(mod)
+#'
+#' @export
 pAICBIC <- function(mod){
   # Residuen
   res <- residuals(mod)
@@ -40,7 +65,7 @@ pAICBIC <- function(mod){
   AIC <- N*T*logSE + 2*K
   AICc <- AIC + (2*K*(K+1))/(N*T-K-1)
   BIC <- N*T*logSE + K*log(N*T)
-  
+
   retval <- c(AIC, AICc, BIC)
   names(retval) <- c("AIC", "AICc", "BIC")
   return(retval)
@@ -48,8 +73,31 @@ pAICBIC <- function(mod){
 
 
 ## R-Code B.2 ----
-# Optimaler Cutpoint gemaß Summe y = Summe yhat
-# notwendige Variablen: Modell, y-Variable, Wert für y = 1
+#' Calculates an optimal cutpoint
+#'
+#' \code{optCP()} calculates the optimal cutpoint for logistic regression models using the
+#'   approach proposed by Wooldridge (2010,  p. 574).
+#'   The selected cutpoint is choosen in a way that \eqn{\sum y = \sum \hat y}.
+#'
+#' @param
+#'   mod Logistic regression model created by \code{glm()}.
+#' @param
+#'   yvar \code{string} Name of the $y$-variable.
+#' @param
+#'   sucess Value for success (\code{string} or \code{integer}).
+#'
+#' @returns
+#'   A named numeric.
+#'
+#' @examples
+#'   \code{optCP(mod, "name", 1)}
+#'   \code{optCP(mod, "name", "yes")}
+#'
+#' @references
+#'   Wooldrige, J. M., 2010, \emph{Econometric analysis of cross section and panel data},
+#'   2nd ed.,  Cambridge: MIT Press
+#'
+#' @export
 optCP <- function(mod, yvar, success){
   # Variable mit 0 und 1 erzeugen
   y <- ifelse(mod$model[yvar] == success, 1, 0)
@@ -69,9 +117,36 @@ optCP <- function(mod, yvar, success){
 
 
 ## R-Code B.3 ----
-# Wu-Hausmann-Test 
-# H0: beide Modelle konsistent
-# Hinweis: funktioniert nicht bei bife- und glmer-Modellen
+#' Performs a Wu-Hausmann-Test
+#'
+#' \code{whtest()} applies a Wu-Hausmann-Test (Wu, 1973; Hausman, 1978) for various model types.
+#'   \emph{Note:} Not implemented for \code{bife}- and \code{glmer}-models.
+#'   Under the null both models are consistent, under the alternative one of the models
+#'   is inconsistent.
+#'   In this case, a message is displayed which model is inconsistent.
+#'
+#' @param
+#'   mod1 A regression model, tested with \code{clogit()}, \code{pglm()}, \code{plm()},
+#'   and \code{iv\_robust()}.
+#'
+#' @param
+#'   mod2 Another model of the classed given above.
+#'
+#' @returns
+#'   None. A message for the alternative and the values for
+#'   \eqn{\chi^2}, degrees of freedom applied, and the p-value are printed.
+#'
+#' @examples
+#'   whtest(mod1, mod2)
+#'
+#' @references
+#'   Wu, D.-M. (1973) Alternative tests of independence between stochastic regressors and
+#'   disturbances, \emph{Econometrica} \bold{41}, 733–-750, DOI 10.2307/1914093.
+#'
+#'   Hausman, J. A. (1978) Specification tests in econometrics, \emph{Econometrica} \bold{46},
+#'   1251-–1271.
+#'
+#' @export
 whtest <- function(mod1, mod2){
   # Koeffizienten
   coef1 <- coef(mod1)
@@ -166,13 +241,13 @@ tTestAR <- function(ar, wsstart, wsend, westart, weend, nParam = 2, flPlot = FAL
   # Ereignisfenster
   wetext <- paste0(westart, "/", weend)
   we <- ar[wetext] |> na.omit()
-  
+
   # Freiheitsgrade für t-Test: Länge Schätzfenster - nParam
   # nParam = 2 bei Einfaktormodell, wie z. B. Marktmodell
   df <- nrow(ws) - nParam
   # Standardfehler
   se <- sqrt(sum(ws^2)/df)
-  
+
   # t-Werte
   t <- we/se
   # p-Werte für zweiseitigen Test
@@ -180,28 +255,28 @@ tTestAR <- function(ar, wsstart, wsend, westart, weend, nParam = 2, flPlot = FAL
   # Ergebnisse in xts-Objekt t.test abspeichern
   t.test <- cbind(we, se, t, p)
   names(t.test) <- c("AR", "se", "t-Wert", "p-Wert")
-  
+
   # CAR berechnen und t-Test durchführen
   CAR <- sum(we)
   SE <- sqrt(nrow(we)) * se
   T <- CAR/SE
   pCAR <- pt(abs(T), df, lower.tail = FALSE) * 2
-  
+
   # Ergebnisse in xts-Objekt CAR.t.test abspeichern
   CAR.t.test <- c(CAR, SE, T, pCAR)
   names(CAR.t.test) <- c("CAR", "se", "t-Wert", "p-Wert")
-  
+
   # Grafik ausgeben
   if(flPlot){
     # Plot mit +/- 2 se
-    autoplot(we) |> 
-      gf_hline(yintercept = 0, color = "blue") |> 
+    autoplot(we) |>
+      gf_hline(yintercept = 0, color = "blue") |>
       gf_hline(yintercept = c(-2 * se, 2 * se), color = "blue", linetype = 2)
   }
-  
+
   retval <- list(t.test, CAR.t.test)
   names(retval) <- c("AR", "CAR")
-  
+
   return(retval)
 }
 
@@ -215,7 +290,7 @@ CRTestAR <- function(ar, wsstart, wsend, westart, weend, nParam = 2){
   # Ereignisfenster
   wetext <- paste0(westart, "/", weend)
   we <- ar[wetext] |> na.omit()
-  
+
   # Schätz- und Ereignisfenster kopieren
   wk <- c(ws, we)
   # Rangplätze in xts ablegen
@@ -224,32 +299,32 @@ CRTestAR <- function(ar, wsstart, wsend, westart, weend, nParam = 2){
   kq <- nrow(wk)/2 + 0.5
   # Abweichungen vom mittleren Rang
   ak <- wk - kq
-  
+
   # Standardfehler
   sek <- sqrt(sum(ak^2)/nrow(ak))
-  
+
   # Ereignisfenster mit Abweichungen vom mittleren Rang
   wek <- ak[wetext]
-  
+
   # t-Werte
   t <- wek/sek
-  
+
   # Freiheitsgrade für t-Test: Länge Schätzfenster - nParam
   # nParam = 2 bei Einfaktormodell, wie z. B. Marktmodell
   df <- nrow(ws) - nParam
-  
+
   # p-Werte für zweiseitigen Test
   p <- pt(abs(t), df, lower.tail = FALSE) * 2
-  
+
   # Ergebnisse in xts-Objekt CR.test abspeichern
   CR.test <- cbind(we, wek, sek, t, p)
   names(CR.test) <- c("AR", "AK", "se", "t-Wert", "p-Wert")
-  
+
   # CAK berechnen und t-Test durchführen
   CAK <- sum(wek)/nrow(wek)
   T <- CAK/sek
   pCAK <- pt(abs(T), df, lower.tail = FALSE) * 2
-  
+
   # CAR
   CAR <- sum(we)
   # Ergebnisse in xts-Objekt CAR.CR.test abspeichern
@@ -257,7 +332,7 @@ CRTestAR <- function(ar, wsstart, wsend, westart, weend, nParam = 2){
   names(CAR.CR.test) <- c("CAR", "CAK", "se", "t-Wert", "p-Wert")
   retval <- list(CR.test, CAR.CR.test)
   names(retval) <- c("AR", "CAR")
-  
+
   return(retval)
 }
 

@@ -142,7 +142,9 @@ optCP <- function(mod, yvar, success){
 #'   \eqn{\chi^2}, degrees of freedom applied, and the p-value are printed.
 #'
 #' @examples
-#'   whtest(AeMFA:::CS.pool, AeMFA:::CS.fem)
+#' \dontrun{
+#'   whtest(mod1, mod2)
+#' }
 #'
 #' @references
 #'   Wu, D.-M. (1973) Alternative tests of independence between stochastic regressors and
@@ -210,7 +212,7 @@ whtest <- function(mod1, mod2){
 #'   \code{pAICBIC()}
 #'
 #' @examples
-#'   lpAICBIC(mod)
+#'   lpAICBIC(AeMFA:::DIV.clogit1)
 #'
 #' @export
 lpAICBIC <- function(mod){

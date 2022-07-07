@@ -24,7 +24,9 @@ is inconsistent.
 In this case, a message is displayed which model is inconsistent.
 }
 \examples{
-  whtest(AeMFA:::CS.pool, AeMFA:::CS.fem)
+\dontrun{
+  whtest(mod1, mod2)
+}
 
 }
 \references{

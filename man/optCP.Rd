@@ -23,7 +23,7 @@ The selected cutpoint is choosen in a way that \eqn{\sum y = \sum \hat y}.
 }
 \examples{
   \code{optCP(mod, "name", 1)}
-  \code{optCP(mod, "name", "yes")}
+  \code{optCP(KRED.glm6, "ausfall", "ja")}
 
 }
 \references{

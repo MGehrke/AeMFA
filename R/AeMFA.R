@@ -265,7 +265,7 @@ lpAICBIC <- function(mod){
 #'   \code{tTestAR()}, \code{CRTestAR()}
 #'
 #' @examples
-#'   AR <- getAR(AeMFA:::BankRet, AeMFA:::IndexRet, start = "2015-01-01", end = "2016-06-19")
+#'   AR <- getAR(AeMFA:::BankRet, AeMFA:::IndexRet, "2015-01-01", "2016-06-19")
 #'   head(AR)
 #'
 #' @export
@@ -315,7 +315,8 @@ getAR <- function(company, index, start, end){
 #'   \code{getAR()}, \code{CRTestAR()}
 #'
 #' @examples
-#'   tTestAR(ar, "2010-01-01", "2015-12-31", "2016-01-05", "2016-01-10", 2, TRUE)
+#'   AR <- getAR(AeMFA:::BankRet, AeMFA:::IndexRet, "2015-01-01", "2016-06-19")
+#'   tTestAR(AR, "2015-01-01", "2016-06-19", "2016-06-20", "2016-06-30", 2, TRUE)
 #'
 #' @export
 tTestAR <- function(ar, wsstart, wsend, westart, weend, nParam = 2, flPlot = FALSE){

@@ -31,7 +31,8 @@ plus the cumulative abnormal return, standard error, t-value, and p-value thereo
 \code{tTestAR()} applies a t-test for abnormal returns.
 }
 \examples{
-  tTestAR(ar, "2010-01-01", "2015-12-31", "2016-01-05", "2016-01-10", 2, TRUE)
+  AR <- getAR(AeMFA:::BankRet, AeMFA:::IndexRet, "2015-01-01", "2016-06-19")
+  tTestAR(AR, "2015-01-01", "2016-06-19", "2016-06-20", "2016-06-30", 2, TRUE)
 
 }
 \seealso{

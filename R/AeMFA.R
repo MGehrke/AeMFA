@@ -90,7 +90,8 @@ pAICBIC <- function(mod){
 #'   A named numeric.
 #'
 #' @examples
-#'   optCP(AeMFA:::KRED.glm6, "ausfall", "ja")
+#'   \dontshow{KRED.glm6 <- AeMFA:::KRED.glm6}
+#'   optCP(KRED.glm6, "ausfall", "ja")
 #'
 #' \dontrun{
 #'   optCP(mod, "name", 1)

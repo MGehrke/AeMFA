@@ -271,12 +271,12 @@ lpAICBIC <- function(mod){
 #' @export
 getAR <- function(company, index, start, end){
   # Überprüfung, ob company und index xts-Objekte sind
-  if(!is.xts(company) || !is.xts(index)){
+  if(!xts::is.xts(company) || !xts::is.xts(index)){
     cat("Die übergebenen Zeitreihen sind keine xts-Objekte!\n")
     return(NULL)
   }
   wstext <- paste0(start, "/", end)
-  data <- merge(company[wstext], index[wstext], join = "inner")
+  data <- xts::merge.xts(company[wstext], index[wstext], join = "inner")
   names(data) <- c("y", "x")
   lm(y ~ x, data = data) |> coef() -> coefs
   ar <- company - (coefs[1] + coefs[2] * index)

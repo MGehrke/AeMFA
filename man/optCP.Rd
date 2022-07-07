@@ -20,9 +20,7 @@ A named numeric.
 \code{optCP()} calculates the optimal cutpoint for logistic regression models using the
 approach proposed by Wooldridge (2010,  p. 574).
 The selected cutpoint is choosen in a way that \eqn{\sum y = \sum \hat y}.
-}
-\details{
-
+\Sexpr{KRED.glm6 <- AeMFA:::KRED.glm6}
 }
 \examples{
   optCP(KRED.glm6, "ausfall", "ja")

@@ -78,10 +78,7 @@ pAICBIC <- function(mod){
 #' `optCP()` calculates the optimal cutpoint for logistic regression models using the
 #'   approach proposed by Wooldridge (2010,  p. 574).
 #'   The selected cutpoint is choosen in a way that \eqn{\sum y = \sum \hat y}.
-#'
-#'  ```{r include = FALSE}
-#'  KRED.glm6 <- AeMFA:::KRED.glm6
-#'  ```
+#'   \Sexpr{KRED.glm6 <- AeMFA:::KRED.glm6}
 #'
 #' @param
 #'   mod Logistic regression model created by \code{glm()}.

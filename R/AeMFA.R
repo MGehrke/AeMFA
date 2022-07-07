@@ -90,8 +90,11 @@ pAICBIC <- function(mod){
 #'   A named numeric.
 #'
 #' @examples
-#'   \code{optCP(mod, "name", 1)}
-#'   \code{optCP(AeMFA:::KRED.glm6, "ausfall", "ja")}
+#' \dontrun{
+#'   optCP(mod, "name", 1)
+#'   optCP(mod, "name", "yes")
+#' }
+#'   optCP(AeMFA:::KRED.glm6, "ausfall", "ja")
 #'
 #' @references
 #'   Wooldrige, J. M., 2010, \emph{Econometric analysis of cross section and panel data},

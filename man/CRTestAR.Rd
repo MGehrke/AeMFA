@@ -22,9 +22,9 @@ CRTestAR(ar, wsstart, wsend, westart, weend, nParam = 2)
 }
 \value{
 A list object containing dates, abnormal returns, abnormal rank values,
-  standard errors, t-values, and p-values,
-  plus the cumulative abnormal return, cumulative abnormal rank place, standard error,
-  t-value, and p-value thereof.
+standard errors, t-values, and p-values,
+plus the cumulative abnormal return, cumulative abnormal rank place, standard error,
+t-value, and p-value thereof.
 }
 \description{
 \code{CRTestAR()} applies a Corrado rank test for abnormal returns (Corrado, 1989.
@@ -35,7 +35,7 @@ A list object containing dates, abnormal returns, abnormal rank values,
 }
 \references{
 Corrado, C. J. (1989) A nonparametric test for abnormal security-price performance in
- event studies, \emph{Journal of Financial Economics}, \bold{23}, 385-–395.
+event studies, \emph{Journal of Financial Economics}, \bold{23}, 385-–395.
 }
 \seealso{
 \code{getAR()}, \code{tTestAR()}

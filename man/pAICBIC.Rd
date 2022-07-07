@@ -11,13 +11,13 @@ pAICBIC(mod)
 }
 \value{
 Upon success the function returns a named numeric vector containing
-  AIC, AICc, and BIC.
+AIC, AICc, and BIC.
 }
 \description{
 \code{pAICBIC()} calculates AIC, AICc, and BIC for models created with \code{plm()}.
 }
 \examples{
-  pAICBIC(mod)
+  pAICBIC(CS.fem)
 
 }
 \seealso{

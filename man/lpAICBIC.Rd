@@ -12,7 +12,7 @@ lpAICBIC(mod)
 }
 \value{
 Upon success the function returns a named numeric vector containing
-  AIC and BIC (if feasible).
+AIC and BIC (if feasible).
 }
 \description{
 \code{lpAICBIC()} calculates AIC and eventually BIC for models created with

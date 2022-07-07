@@ -17,7 +17,7 @@ getAR(company, index, start, end)
 }
 \value{
 Upon success the function returns a named \code{xts}-object containing
-  the abnormal returns for the whole period given by \code{company} or \code{index}.
+the abnormal returns for the whole period given by \code{company} or \code{index}.
 }
 \description{
 \code{getAR()} calculates the abnormal return over a standard return calculated by a

@@ -25,7 +25,7 @@ of \eqn{\pm} 2 standard errors should be drawn. Defaults to FALSE.}
 }
 \value{
 A list object containing dates, abnormal returns, standard errors, t-values, and p-values,
-  plus the cumulative abnormal return, standard error, t-value, and p-value thereof.
+plus the cumulative abnormal return, standard error, t-value, and p-value thereof.
 }
 \description{
 \code{tTestAR()} applies a t-test for abnormal returns.

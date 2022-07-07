@@ -14,14 +14,14 @@ whtest(mod1, mod2)
 }
 \value{
 None. A message for the alternative and the values for
-  \eqn{\chi^2}, degrees of freedom applied, and the p-value are printed.
+\eqn{\chi^2}, degrees of freedom applied, and the p-value are printed.
 }
 \description{
 \code{whtest()} applies a Wu-Hausmann-Test (Wu, 1973; Hausman, 1978) for various model types.
-  \emph{Note:} Not implemented for \code{bife}- and \code{glmer}-models.
-  Under the null both models are consistent, under the alternative one of the models
-  is inconsistent.
-  In this case, a message is displayed which model is inconsistent.
+\emph{Note:} Not implemented for \code{bife}- and \code{glmer}-models.
+Under the null both models are consistent, under the alternative one of the models
+is inconsistent.
+In this case, a message is displayed which model is inconsistent.
 }
 \examples{
   whtest(mod1, mod2)
@@ -29,8 +29,8 @@ None. A message for the alternative and the values for
 }
 \references{
 Wu, D.-M. (1973) Alternative tests of independence between stochastic regressors and
-  disturbances, \emph{Econometrica}, \bold{41}, 733–-750, DOI 10.2307/1914093.
+disturbances, \emph{Econometrica}, \bold{41}, 733–-750, DOI 10.2307/1914093.
 
-  Hausman, J. A. (1978) Specification tests in econometrics, \emph{Econometrica}, \bold{46},
-  1251-–1271.
+Hausman, J. A. (1978) Specification tests in econometrics, \emph{Econometrica}, \bold{46},
+1251-–1271.
 }

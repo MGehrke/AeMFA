@@ -22,7 +22,7 @@ NULL
 #'   \code{lpAICBIC()}
 #'
 #' @examples
-#'   pAICBIC(mod)
+#'   pAICBIC(CS.fem)
 #'
 #' @export
 pAICBIC <- function(mod){
@@ -91,7 +91,7 @@ pAICBIC <- function(mod){
 #'
 #' @examples
 #'   \code{optCP(mod, "name", 1)}
-#'   \code{optCP(mod, "name", "yes")}
+#'   \code{optCP(KRED.glm6, "ausfall", "ja")}
 #'
 #' @references
 #'   Wooldrige, J. M., 2010, \emph{Econometric analysis of cross section and panel data},

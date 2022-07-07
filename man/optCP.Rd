@@ -18,8 +18,8 @@ A named numeric.
 }
 \description{
 \code{optCP()} calculates the optimal cutpoint for logistic regression models using the
-  approach proposed by Wooldridge (2010,  p. 574).
-  The selected cutpoint is choosen in a way that \eqn{\sum y = \sum \hat y}.
+approach proposed by Wooldridge (2010,  p. 574).
+The selected cutpoint is choosen in a way that \eqn{\sum y = \sum \hat y}.
 }
 \examples{
   \code{optCP(mod, "name", 1)}
@@ -28,5 +28,5 @@ A named numeric.
 }
 \references{
 Wooldrige, J. M., 2010, \emph{Econometric analysis of cross section and panel data},
-  2nd ed.,  Cambridge: MIT Press
+2nd ed.,  Cambridge: MIT Press
 }

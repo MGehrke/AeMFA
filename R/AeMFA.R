@@ -78,7 +78,6 @@ pAICBIC <- function(mod){
 #' `optCP()` calculates the optimal cutpoint for logistic regression models using the
 #'   approach proposed by Wooldridge (2010,  p. 574).
 #'   The selected cutpoint is choosen in a way that \eqn{\sum y = \sum \hat y}.
-#'   \Sexpr{x <- rnorm(100)}
 #'
 #' @param
 #'   mod Logistic regression model created by \code{glm()}.
@@ -91,9 +90,8 @@ pAICBIC <- function(mod){
 #'   A named numeric.
 #'
 #' @examples
-#'   head(x)
-#'   KRED.glm <- glm(as.factor(ausfall) ~ alter, data = KRED, family = binomial(logit))
-#'   optCP(KRED.glm, "ausfall", 1)
+#'   DIV.glm <- glm(Payout ~ ROA, data = DIV, family = binomial(logit))
+#'   optCP(DIV.glm, "Payout", 1)
 #'
 #' \dontrun{
 #'   optCP(mod, "name", 1)
@@ -144,7 +142,7 @@ optCP <- function(mod, yvar, success){
 #'   \eqn{\chi^2}, degrees of freedom applied, and the p-value are printed.
 #'
 #' @examples
-#'   whtest(mod1, mod2)
+#'   whtest(AeMFA:::CS.pool, AeMFA:::CS.fem)
 #'
 #' @references
 #'   Wu, D.-M. (1973) Alternative tests of independence between stochastic regressors and

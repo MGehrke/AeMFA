@@ -24,7 +24,7 @@ is inconsistent.
 In this case, a message is displayed which model is inconsistent.
 }
 \examples{
-  whtest(mod1, mod2)
+  whtest(AeMFA:::CS.pool, AeMFA:::CS.fem)
 
 }
 \references{

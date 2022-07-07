@@ -20,12 +20,10 @@ A named numeric.
 \code{optCP()} calculates the optimal cutpoint for logistic regression models using the
 approach proposed by Wooldridge (2010,  p. 574).
 The selected cutpoint is choosen in a way that \eqn{\sum y = \sum \hat y}.
-\Sexpr{x <- rnorm(100)}
 }
 \examples{
-  head(x)
-  KRED.glm <- glm(as.factor(ausfall) ~ alter, data = KRED, family = binomial(logit))
-  optCP(KRED.glm, "ausfall", 1)
+  DIV.glm <- glm(Payout ~ ROA, data = DIV, family = binomial(logit))
+  optCP(DIV.glm, "Payout", 1)
 
 \dontrun{
   optCP(mod, "name", 1)

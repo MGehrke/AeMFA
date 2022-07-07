@@ -415,7 +415,7 @@ CRTestAR <- function(ar, wsstart, wsend, westart, weend, nParam = 2){
   # Schätz- und Ereignisfenster kopieren
   wk <- c(ws, we)
   # Rangplätze in xts ablegen
-  xts::coredata(wk) <- rank(as.vector(wk))
+  xts::coredata.xts(wk) <- rank(as.vector(wk))
   # mittlerer Rang
   kq <- nrow(wk)/2 + 0.5
   # Abweichungen vom mittleren Rang

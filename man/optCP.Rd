@@ -21,8 +21,10 @@ A named numeric.
 approach proposed by Wooldridge (2010,  p. 574).
 The selected cutpoint is choosen in a way that \eqn{\sum y = \sum \hat y}.
 }
+\details{
+
+}
 \examples{
-  \dontshow{KRED.glm6 <- AeMFA:::KRED.glm6}
   optCP(KRED.glm6, "ausfall", "ja")
 
 \dontrun{

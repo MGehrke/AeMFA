@@ -78,7 +78,7 @@ pAICBIC <- function(mod){
 #' `optCP()` calculates the optimal cutpoint for logistic regression models using the
 #'   approach proposed by Wooldridge (2010,  p. 574).
 #'   The selected cutpoint is choosen in a way that \eqn{\sum y = \sum \hat y}.
-#'   \Sexpr[eval = TRUE]{KRED.glm6 <- AeMFA:::KRED.glm6}
+#'   \Sexpr{x <- rnorm(100)}
 #'
 #' @param
 #'   mod Logistic regression model created by \code{glm()}.
@@ -91,8 +91,9 @@ pAICBIC <- function(mod){
 #'   A named numeric.
 #'
 #' @examples
-## #'   \dontshow{KRED.glm6 <- AeMFA:::KRED.glm6} ## macht keinen Sinn, wird bei run dann doch gezeigt
-#'   optCP(KRED.glm6, "ausfall", "ja")
+#'   head(x)
+#'   KRED.glm <- glm(as.factor(ausfall) ~ alter, data = KRED, family = binomial(logit))
+#'   optCP(KRED.glm, "ausfall", 1)
 #'
 #' \dontrun{
 #'   optCP(mod, "name", 1)

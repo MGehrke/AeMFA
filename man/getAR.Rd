@@ -24,7 +24,8 @@ the abnormal returns for the whole period given by \code{company} or \code{index
 market model.
 }
 \examples{
-  getAR(company, index, "2010-01-01", "2015-12-31")
+  AR <- getAR(AeMFA:::BankRet, AeMFA:::IndexRet, wsstart = "2015-01-01", wsend = "2016-06-19")
+  head(AR)
 
 }
 \seealso{

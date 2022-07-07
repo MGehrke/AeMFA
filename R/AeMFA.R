@@ -212,7 +212,9 @@ whtest <- function(mod1, mod2){
 #'   \code{pAICBIC()}
 #'
 #' @examples
-#'   lpAICBIC(AeMFA:::DIV.clogit)
+#' \dontrun{
+#'   lpAICBIC(mod)
+#' }
 #'
 #' @export
 lpAICBIC <- function(mod){
@@ -263,7 +265,8 @@ lpAICBIC <- function(mod){
 #'   \code{tTestAR()}, \code{CRTestAR()}
 #'
 #' @examples
-#'   getAR(company, index, "2010-01-01", "2015-12-31")
+#'   AR <- getAR(AeMFA:::BankRet, AeMFA:::IndexRet, wsstart = "2015-01-01", wsend = "2016-06-19")
+#'   head(AR)
 #'
 #' @export
 getAR <- function(company, index, start, end){

@@ -19,7 +19,9 @@ AIC and BIC (if feasible).
 \code{bife()}, \code{clogit()}, \code{glmer()}, or \code{pglm()}.
 }
 \examples{
-  lpAICBIC(AeMFA:::DIV.clogit)
+\dontrun{
+  lpAICBIC(mod)
+}
 
 }
 \seealso{

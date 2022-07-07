@@ -17,7 +17,7 @@ AIC, AICc, and BIC.
 \code{pAICBIC()} calculates AIC, AICc, and BIC for models created with \code{plm()}.
 }
 \examples{
-  pAICBIC(CS.fem)
+  pAICBIC(AeMFA:::CS.fem)
 
 }
 \seealso{

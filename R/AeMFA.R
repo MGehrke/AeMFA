@@ -212,7 +212,7 @@ whtest <- function(mod1, mod2){
 #'   \code{pAICBIC()}
 #'
 #' @examples
-#'   lpAICBIC(AeMFA:::DIV.clogit1)
+#'   lpAICBIC(AeMFA:::DIV.clogit)
 #'
 #' @export
 lpAICBIC <- function(mod){

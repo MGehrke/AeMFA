@@ -22,11 +22,12 @@ approach proposed by Wooldridge (2010,  p. 574).
 The selected cutpoint is choosen in a way that \eqn{\sum y = \sum \hat y}.
 }
 \examples{
+  optCP(AeMFA:::KRED.glm6, "ausfall", "ja")
+
 \dontrun{
   optCP(mod, "name", 1)
   optCP(mod, "name", "yes")
 }
-  optCP(AeMFA:::KRED.glm6, "ausfall", "ja")
 
 }
 \references{

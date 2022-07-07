@@ -30,7 +30,8 @@ t-value, and p-value thereof.
 \code{CRTestAR()} applies a Corrado rank test for abnormal returns (Corrado, 1989.
 }
 \examples{
-  CRTestAR(ar, "2010-01-01", "2015-12-31", "2016-01-05", "2016-01-10", 2)
+  AR <- getAR(AeMFA:::BankRet, AeMFA:::IndexRet, "2015-01-01", "2016-06-19")
+  CRTestAR(AR, "2015-01-01", "2016-06-19", "2016-06-20", "2016-06-30", 2)
 
 }
 \references{

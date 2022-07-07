@@ -306,6 +306,7 @@ getAR <- function(company, index, start, end){
 #' @param
 #'   flPlot Logical, indicates whether a plot of the abnormal returns including an interval
 #'   of \eqn{\pm} 2 standard errors should be drawn. Defaults to FALSE.
+#'   Requires to execute `library(xts)` upfront to work.
 #'
 #' @returns
 #'   A list object containing dates, abnormal returns, standard errors, t-values, and p-values,
@@ -316,7 +317,7 @@ getAR <- function(company, index, start, end){
 #'
 #' @examples
 #'   AR <- getAR(AeMFA:::BankRet, AeMFA:::IndexRet, "2015-01-01", "2016-06-19")
-#'   tTestAR(AR, "2015-01-01", "2016-06-19", "2016-06-20", "2016-06-30", 2, TRUE)
+#'   tTestAR(AR, "2015-01-01", "2016-06-19", "2016-06-20", "2016-06-30", 2, FALSE)
 #'
 #' @export
 tTestAR <- function(ar, wsstart, wsend, westart, weend, nParam = 2, flPlot = FALSE){
@@ -395,7 +396,8 @@ tTestAR <- function(ar, wsstart, wsend, westart, weend, nParam = 2, flPlot = FAL
 #'   \code{getAR()}, \code{tTestAR()}
 #'
 #' @examples
-#'   CRTestAR(ar, "2010-01-01", "2015-12-31", "2016-01-05", "2016-01-10", 2)
+#'   AR <- getAR(AeMFA:::BankRet, AeMFA:::IndexRet, "2015-01-01", "2016-06-19")
+#'   CRTestAR(AR, "2015-01-01", "2016-06-19", "2016-06-20", "2016-06-30", 2)
 #'
 #' @references
 #'  Corrado, C. J. (1989) A nonparametric test for abnormal security-price performance in

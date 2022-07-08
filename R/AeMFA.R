@@ -492,7 +492,7 @@ CRTestAR <- function(ar, wsstart, wsend, westart, weend, nParam = 2){
 #' @examples
 #'   x <- rnorm(100)
 #'   optBT(x, maxLags = 30)
-#'   optBT(x, maxLags = 30, flPrint = TRUE)
+#'   optBT(x, maxLags = 10, flPrint = TRUE)
 #'
 #' @export
 optBT <- function(x, maxLags = 20, type = "Box-Pierce", fitdf = 0, flPrint = FALSE){

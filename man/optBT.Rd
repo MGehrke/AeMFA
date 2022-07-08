@@ -38,7 +38,7 @@ Details see the documentation for \code{Box.test()}.
 \examples{
   x <- rnorm(100)
   optBT(x, maxLags = 30)
-  optBT(x, maxLags = 30, flPrint = TRUE)
+  optBT(x, maxLags = 10, flPrint = TRUE)
 
 }
 \seealso{

@@ -21,7 +21,7 @@ tTestAR(ar, wsstart, wsend, westart, weend, nParam = 2, flPlot = FALSE)
 2 for the market model and other one-factor models. Defaults to 2.}
 
 \item{flPlot}{Logical, indicates whether a plot of the abnormal returns including an interval
-of \eqn{\pm} 2 standard errors should be drawn. Defaults to FALSE.
+of the critical values of \eqn{0\pm 2} standard errors should be drawn. Defaults to FALSE.
 Requires to execute \code{library(xts)} upfront to work.}
 }
 \value{
@@ -34,7 +34,7 @@ plus the cumulative abnormal return, standard error, t-value, and p-value thereo
 \examples{
   library(xts)
   AR <- getAR(AeMFA:::BankRet, AeMFA:::IndexRet, "2015-01-01", "2016-06-19")
-  tTestAR(AR, "2015-01-01", "2016-06-19", "2016-06-20", "2016-06-30", 2, TRUE)
+  tTestAR(AR, "2015-01-01", "2016-06-19", "2016-06-20", "2016-06-30", 2, FALSE)
 
 }
 \seealso{

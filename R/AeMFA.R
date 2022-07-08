@@ -265,6 +265,7 @@ lpAICBIC <- function(mod){
 #'   \code{tTestAR()}, \code{CRTestAR()}
 #'
 #' @examples
+#'   library(xts)
 #'   AR <- getAR(AeMFA:::BankRet, AeMFA:::IndexRet, "2015-01-01", "2016-06-19")
 #'   head(AR)
 #'

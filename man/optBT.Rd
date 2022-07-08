@@ -36,7 +36,7 @@ The number of lags were selected according to the smallest p-value within the gi
 Details see the documentation for \code{Box.test()}.
 }
 \examples{
-  x <- cumsum(rnorm(100))
+  x <- as.numeric(DAX$Rendite)
   optBT(x, maxLags = 30)
   optBT(x, maxLags = 10, flPrint = TRUE)
 

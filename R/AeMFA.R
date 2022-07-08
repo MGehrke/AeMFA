@@ -490,7 +490,7 @@ CRTestAR <- function(ar, wsstart, wsend, westart, weend, nParam = 2){
 #'   [Box.test()]
 #'
 #' @examples
-#'   x <- cumsum(rnorm(100))
+#'   x <- as.numeric(DAX$Rendite)
 #'   optBT(x, maxLags = 30)
 #'   optBT(x, maxLags = 10, flPrint = TRUE)
 #'

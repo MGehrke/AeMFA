@@ -37,5 +37,5 @@ plus the cumulative abnormal return, standard error, t-value, and p-value thereo
 
 }
 \seealso{
-\code{getAR()}, \code{CRTestAR()}
+\code{\link[=getAR]{getAR()}}, \code{\link[=CRTestAR]{CRTestAR()}}
 }

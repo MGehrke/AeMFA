@@ -19,7 +19,7 @@ NULL
 #'   AIC, AICc, and BIC.
 #'
 #' @seealso
-#'   \code{lpAICBIC()}
+#'   [lpAICBIC()]
 #'
 #' @examples
 #'   pAICBIC(AeMFA:::CS.fem)
@@ -209,7 +209,7 @@ whtest <- function(mod1, mod2){
 #'   AIC and BIC (if feasible).
 #'
 #' @seealso
-#'   \code{pAICBIC()}
+#'   [pAICBIC()]
 #'
 #' @examples
 #' \dontrun{
@@ -262,7 +262,7 @@ lpAICBIC <- function(mod){
 #'   the abnormal returns for the whole period given by \code{company} or \code{index}.
 #'
 #' @seealso
-#'   \code{tTestAR()}, \code{CRTestAR()}
+#'   [tTestAR()], [CRTestAR()]
 #'
 #' @examples
 #'   AR <- getAR(AeMFA:::BankRet, AeMFA:::IndexRet, "2015-01-01", "2016-06-19")
@@ -313,7 +313,7 @@ getAR <- function(company, index, start, end){
 #'   plus the cumulative abnormal return, standard error, t-value, and p-value thereof.
 #'
 #' @seealso
-#'   \code{getAR()}, \code{CRTestAR()}
+#'   [getAR()], [CRTestAR()]
 #'
 #' @examples
 #'   AR <- getAR(AeMFA:::BankRet, AeMFA:::IndexRet, "2015-01-01", "2016-06-19")
@@ -393,7 +393,7 @@ tTestAR <- function(ar, wsstart, wsend, westart, weend, nParam = 2, flPlot = FAL
 #'   t-value, and p-value thereof.
 #'
 #' @seealso
-#'   \code{getAR()}, \code{tTestAR()}
+#'   [getAR()], [tTestAR()]
 #'
 #' @examples
 #'   AR <- getAR(AeMFA:::BankRet, AeMFA:::IndexRet, "2015-01-01", "2016-06-19")
@@ -492,6 +492,7 @@ CRTestAR <- function(ar, wsstart, wsend, westart, weend, nParam = 2){
 #' @examples
 #'   x <- rnorm(100)
 #'   optBT(x, maxLags = 30)
+#'   optBT(x, maxLags = 30, flPrint = TRUE)
 #'
 #' @export
 optBT <- function(x, maxLags = 20, type = "Box-Pierce", fitdf = 0, flPrint = FALSE){

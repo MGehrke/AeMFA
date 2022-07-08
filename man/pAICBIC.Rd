@@ -21,5 +21,5 @@ AIC, AICc, and BIC.
 
 }
 \seealso{
-\code{lpAICBIC()}
+\code{\link[=lpAICBIC]{lpAICBIC()}}
 }

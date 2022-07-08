@@ -39,5 +39,5 @@ Corrado, C. J. (1989) A nonparametric test for abnormal security-price performan
 event studies, \emph{Journal of Financial Economics}, \bold{23}, 385-–395.
 }
 \seealso{
-\code{getAR()}, \code{tTestAR()}
+\code{\link[=getAR]{getAR()}}, \code{\link[=tTestAR]{tTestAR()}}
 }

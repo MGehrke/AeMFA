@@ -29,5 +29,5 @@ market model.
 
 }
 \seealso{
-\code{tTestAR()}, \code{CRTestAR()}
+\code{\link[=tTestAR]{tTestAR()}}, \code{\link[=CRTestAR]{CRTestAR()}}
 }

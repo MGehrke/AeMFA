@@ -500,7 +500,7 @@ optBT <- function(x, maxLags = 20, type = "Box-Pierce", fitdf = 0, flPrint = FAL
   # Schleife von 1 bis maxLags
   for(i in 1:maxLags){
     # Box-Pierce- bzw. Ljung-Box-Test durchführen
-    out <- Box.test(DAX$Rendite, lag = i, type, fitdf)
+    out <- Box.test(x, lag = i, type, fitdf)
     # Ergebnis abspeichern
     vals <- rbind(vals, data.frame(lags = out$parameter, pval = out$p.value))
     # ggf. Ergebnis ausgeben

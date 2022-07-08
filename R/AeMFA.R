@@ -316,7 +316,6 @@ getAR <- function(company, index, start, end){
 #'   \code{getAR()}, \code{CRTestAR()}
 #'
 #' @examples
-#'   library(xts)
 #'   AR <- getAR(AeMFA:::BankRet, AeMFA:::IndexRet, "2015-01-01", "2016-06-19")
 #'   tTestAR(AR, "2015-01-01", "2016-06-19", "2016-06-20", "2016-06-30", 2, FALSE)
 #'
@@ -371,7 +370,7 @@ tTestAR <- function(ar, wsstart, wsend, westart, weend, nParam = 2, flPlot = FAL
 ## R-Code B.7 ----
 #' Corrado rank test for abnormal returns in single company event studies
 #'
-#' \code{CRTestAR()} applies a Corrado rank test for abnormal returns (Corrado, 1989.
+#' \code{CRTestAR()} applies a Corrado rank test for abnormal returns (Corrado, 1989).
 #'
 #' @param
 #'   ar An \code{xts}-object containing the abnormal returns.
@@ -460,7 +459,41 @@ CRTestAR <- function(ar, wsstart, wsend, westart, weend, nParam = 2){
 
 
 ## R-Code B.8 ----
-# Optimale Anzahl von Lags für die Funktion Box.test
+#' Optimal number of lags for Box.test
+#'
+#' \code{optBT()} applies a `Box.test()`.
+#' The number of lags were selected according to the smallest p-value within the given range.
+#'
+#' Details see the documentation for `Box.test()`.
+#'
+#' @param
+#'   X a numeric vector or univariate time series.
+#' @param
+#'   maxlags Integer, gives the maximal number of lags to which the test should be performed.
+#' @param
+#'   type	Test to be performed ("Box-Pierce", "Ljung-Box"), partial matching is used.
+#' @param
+#'   fitdf Integer, number of degrees of freedom to be subtracted if `x` is a series of residuals.
+#' @param
+#'   flPrint If TRUE, the tested number of lags and p-values are printed. Defaults to FALSE
+#'
+#' @returns
+#' A list with class "htest" containing the following components:
+#' * `statistic` the value of the test statistic.
+#' * `parameter` the degrees of freedom of the approximate chi-squared distribution of
+#'    the test statistic (taking fitdf into account).
+#' * `p.value` the p-value of the test.
+#' * `method`	a character string indicating which type of test was performed.
+#' * `data.name` character string giving the name of the data.
+#'
+#' @seealso
+#'   [Box.test()]
+#'
+#' @examples
+#'   x <- rnorm(100)
+#'   optBT(x, maxLags = 30)
+#'
+#' @export
 optBT <- function(x, maxLags = 20, type = "Box-Pierce", fitdf = 0, flPrint = FALSE){
   vals <- data.frame(lags = 0, pval = 1)
   # Schleife von 1 bis maxLags

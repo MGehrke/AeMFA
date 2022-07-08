@@ -3,6 +3,7 @@
 export(CRTestAR)
 export(getAR)
 export(lpAICBIC)
+export(optBT)
 export(optCP)
 export(pAICBIC)
 export(tTestAR)

@@ -27,7 +27,7 @@ plus the cumulative abnormal return, cumulative abnormal rank place, standard er
 t-value, and p-value thereof.
 }
 \description{
-\code{CRTestAR()} applies a Corrado rank test for abnormal returns (Corrado, 1989.
+\code{CRTestAR()} applies a Corrado rank test for abnormal returns (Corrado, 1989).
 }
 \examples{
   AR <- getAR(AeMFA:::BankRet, AeMFA:::IndexRet, "2015-01-01", "2016-06-19")

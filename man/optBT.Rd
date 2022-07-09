@@ -29,11 +29,11 @@ the test statistic (taking fitdf into account).
 }
 }
 \description{
-\code{optBT()} applies a \code{Box.test()}.
+\code{optBT()} applies a \code{Box.test()} from base R.
 The number of lags were selected according to the smallest p-value within the given range.
 }
 \details{
-Details see the documentation for \code{Box.test()}.
+For further details refer to the documentation of \code{\link[=Box.test]{Box.test()}}.
 }
 \examples{
   x <- as.numeric(DAX$Rendite)

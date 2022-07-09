@@ -21,8 +21,7 @@ tTestAR(ar, wsstart, wsend, westart, weend, nParam = 2, flPlot = FALSE)
 2 for the market model and other one-factor models. Defaults to 2.}
 
 \item{flPlot}{Logical, indicates whether a plot of the abnormal returns including an interval
-of the critical values of \eqn{0\pm 2} standard errors should be drawn. Defaults to FALSE.
-Requires to execute \code{library(xts)} upfront to work.}
+of the critical values of \eqn{0\pm 2} standard errors should be drawn. Defaults to FALSE.}
 }
 \value{
 A list object containing dates, abnormal returns, standard errors, t-values, and p-values,

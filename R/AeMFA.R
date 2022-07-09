@@ -355,7 +355,7 @@ tTestAR <- function(ar, wsstart, wsend, westart, weend, nParam = 2, flPlot = FAL
   if(flPlot){
     # Plot mit +/- 2 se
     ggplot2::autoplot(we) |>
-      ggformula::gf_hline(yintercept = 0, color = "blue") |>
+      ggformula::gf_hline(yintercept = ~ 0, color = "blue") |>
       ggformula::gf_hline(yintercept = c(-2 * se, 2 * se), color = "blue", linetype = 2)
   }
 
@@ -460,10 +460,10 @@ CRTestAR <- function(ar, wsstart, wsend, westart, weend, nParam = 2){
 ## R-Code B.8 ----
 #' Optimal number of lags for Box.test
 #'
-#' \code{optBT()} applies a `Box.test()`.
+#' \code{optBT()} applies a `Box.test()` from base R.
 #' The number of lags were selected according to the smallest p-value within the given range.
 #'
-#' Details see the documentation for `Box.test()`.
+#' For further details refer to the documentation of [Box.test()].
 #'
 #' @param
 #'   X a numeric vector or univariate time series.

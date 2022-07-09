@@ -32,7 +32,7 @@ plus the cumulative abnormal return, standard error, t-value, and p-value thereo
 }
 \examples{
   AR <- getAR(AeMFA:::BankRet, AeMFA:::IndexRet, "2015-01-01", "2016-06-19")
-  tTestAR(AR, "2015-01-01", "2016-06-19", "2016-06-20", "2016-06-30", 2, FALSE)
+  tTestAR(AR, "2015-01-01", "2016-06-19", "2016-06-20", "2016-06-30", 2, TRUE)
 
 }
 \seealso{

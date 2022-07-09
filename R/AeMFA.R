@@ -316,7 +316,7 @@ getAR <- function(company, index, start, end){
 #'
 #' @examples
 #'   AR <- getAR(AeMFA:::BankRet, AeMFA:::IndexRet, "2015-01-01", "2016-06-19")
-#'   tTestAR(AR, "2015-01-01", "2016-06-19", "2016-06-20", "2016-06-30", 2, FALSE)
+#'   tTestAR(AR, "2015-01-01", "2016-06-19", "2016-06-20", "2016-06-30", 2, TRUE)
 #'
 #' @export
 tTestAR <- function(ar, wsstart, wsend, westart, weend, nParam = 2, flPlot = FALSE){

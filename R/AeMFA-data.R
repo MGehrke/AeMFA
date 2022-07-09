@@ -190,11 +190,9 @@
 ## KRED ----
 #' Various determinants in regard to credit default
 #'
-#' A dataset containing yearly data from 2006 to 2010 about market value,
-#' external and internal corporate governance indicators, and several control
-#' variables of 427 companies listed in the EURO STOXX 600 .
+#' A dataset containing various details of private credit data, including credit default.
 #'
-#' @format A data frame with 1281 observations of 20 variables:
+#' @format A data frame with 25570 observations of 8 variables:
 #' * `ausfall` credit default (no, yes)
 #' * `betrag` credit amount in USD
 #' * `zins` interest rate in percent

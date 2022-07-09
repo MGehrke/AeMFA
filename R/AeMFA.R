@@ -354,10 +354,11 @@ tTestAR <- function(ar, wsstart, wsend, westart, weend, nParam = 2, flPlot = FAL
   # Grafik ausgeben
   if(flPlot){
     # Plot mit +/- 2 se
-    p <- ggplot2::autoplot(we) |>
+    ggplot2::autoplot(we) |>
       ggformula::gf_hline(yintercept = ~ 0, color = "blue") |>
-      ggformula::gf_hline(yintercept = c(-2 * se, 2 * se), color = "blue", linetype = 2)
-    print(p)
+      ggformula::gf_hline(yintercept = c(-2 * se, 2 * se), color = "blue", linetype = 2) |>
+      # In Paketen print() notwendig, damit eine Ausgabe erscheint
+      print()
   }
 
   retval <- list(t.test, CAR.t.test)

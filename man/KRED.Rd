@@ -5,7 +5,7 @@
 \alias{KRED}
 \title{Various determinants in regard to credit default}
 \format{
-A data frame with 1281 observations of 20 variables:
+A data frame with 25570 observations of 8 variables:
 \itemize{
 \item \code{ausfall} credit default (no, yes)
 \item \code{betrag} credit amount in USD
@@ -24,8 +24,6 @@ The data are originally provided by Lending Club and modified by DataCamp.
 KRED
 }
 \description{
-A dataset containing yearly data from 2006 to 2010 about market value,
-external and internal corporate governance indicators, and several control
-variables of 427 companies listed in the EURO STOXX 600 .
+A dataset containing various details of private credit data, including credit default.
 }
 \keyword{datasets}
